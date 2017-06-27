@@ -133,7 +133,7 @@ Linear Regression want to do the Following
        WOOOOO it worked. Sorry I surprised myself.
 
 And that is how Linear Regression works
-The actual implementation follows the same rules but using matrices (dont worry not that hard)
+The actual implementation follows the same rules but using matrices. (dont worry not that complex)
 
 The way we found the minimum is actually separate from Linear Regression and is called gradient descent
 and I will go over it in more detail in another part of this repository
