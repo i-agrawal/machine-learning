@@ -82,8 +82,7 @@ Linear Regression want to do the Following
        f(our line, actual points) = sum of (each actual point - our line's guess)^2
 
        so why does it matter that it is a function?
-       a function is a line
-       and this line just so happens to have a minimum
+       because a function is a line like below
 
 
      4 |\       /
@@ -93,18 +92,20 @@ Linear Regression want to do the Following
      0 |_ _ _ _ _
         0 1 2 3 4
 
-       that is what a y = x^2 graph looks like
-       and it always has a bottom
-       that is called the minimum
-       and that minimum point is when our guess is the least wrong
+       that is what a y = x^2 graph looks like (sort of)
+       and it always has that point at the bottom called a minimum
+       and that minimum is when our guess is the least wrong
        and when our guess is the least wrong that must mean
-       we found the best answer and the best y = mx + b
+       we found the best answer (the best y = mx + b) yay!
 
-       but how do we get to the minimum?
-       there is the slow, math, linear algebra way
-       and then there is the faster way
-       through the math you all know and love, calculus (*cheers everywhere*)
-       lets put a point on the y = x^2 graph above
+       but now how do we get to the minimum?
+
+       there are a lot of ways actually
+       but for now I will show you a common way to do it
+
+       now you must be wondering how what magic could find the minimum
+       lucky for you it is through the math you all know and love. Calculus (*cheers everywhere*)
+       we will put a point on the y = x^2 graph shown below (sort of)
 
 
      4 |\       /
@@ -115,16 +116,24 @@ Linear Regression want to do the Following
         0 1 2 3 4
 
 
-       as you can guess the point needs to move to the right
-       to reach the minimum
+       as you can guess the point needs to move to the right to reach the minimum
        the reason we know this is the slope is pointing that way
-       and how do we get slope of a function
-       through derivatives (yay!)
+       and how do we get slope of a function, through derivatives (yay!)
 
        so we continuously move in the direction pointed by the derivative
-       until we reach the minimum
-       and we have our answer
+       we will eventually reach our answer
+
+    4 |\       /        4 |\       /        4 |\       /
+    3 |  o    /         3 | \     /         3 | \     /
+    2 |   \ /           2 |   o /           2 |   \o/
+    1 |                 1 |                 1 |    
+    0 |_ _ _ _ _        0 |_ _ _ _ _        0 |_ _ _ _ _
+       0 1 2 3 4           0 1 2 3 4           0 1 2 3 4
+
+       WOOOOO it worked. Sorry I surprised myself.
 
 And that is how Linear Regression works
-The actual implementation follows the same rules
-just will go over the actual
+The actual implementation follows the same rules but using matrices (dont worry not that hard)
+
+The way we found the minimum is actually separate from Linear Regression and is called gradient descent
+and I will go over it in more detail in another part of this repository
