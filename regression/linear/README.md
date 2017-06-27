@@ -3,9 +3,9 @@
 Linear Regression want to do the Following
 
 
-       we have a bunch of points
-       we want to find a line connecting those points
-       so we want to get the correct y = mx + b (yes math I am sorry)
+       1. we have a bunch of points
+       2. we want to find a line connecting those points
+       3. so we want to get the correct y = mx + b (yes math I am sorry)
 
 
        For example we have the following
