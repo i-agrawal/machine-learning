@@ -11,6 +11,10 @@ DEP = $(wildcard $(INC)/*.h)
 MID = $(patsubst $(SRC)/%.c, $(OBJ)/%.o, $(wildcard $(SRC)/*.c))
 FIN = $(BIN)/$(EXE)
 
+GRAPHDIR = ../../gnuplot
+GRAPHNAME = gnuplot
+GRAPHER = $(GRAPHDIR)/install/bin/$(GRAPHNAME)
+
 CC = gcc
 OFLAGS = -O3 -I$(MML)/$(INC) -I$(INC)
 CFLAGS = $(MMO)
@@ -20,7 +24,7 @@ ifneq ($(OS),Windows_NT)
   endif
 endif
 
-$(FIN): $(MID) $(MMO)
+$(FIN): $(MID) $(MMO) $(GRAPHER)
 	$(CC) -o $@ $^ $(CFLAGS)
 
 $(MMO): $(MMM)
@@ -28,6 +32,9 @@ $(MMO): $(MMM)
 
 $(OBJ)/%.o: $(SRC)/%.c $(DEP)
 	$(CC) -c -o $@ $< $(OFLAGS)
+
+$(GRAPHER) : $(GRAPHDIR)/Makefile
+	make -C $(GRAHPDIR)
 
 .PHONY: display clean
 display:
