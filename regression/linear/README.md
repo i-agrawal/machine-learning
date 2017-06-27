@@ -1,6 +1,6 @@
 # Linear Regression
 
-Linear Regression want to do the Following
+Linear Regression wants to do the Following
 
 
        we have a bunch of points
@@ -40,7 +40,8 @@ Linear Regression want to do the Following
        our new points are (0, 1), (2, 2), (3, 4)
        so how are we supposed to get a straight line for that?
 
-       lets start by making a guess for the line like y = x
+       we have to set m and b from y = mx + b
+       so lets start by making a guess for the line like y = x
 
 
      4 |      o /
@@ -73,16 +74,48 @@ Linear Regression want to do the Following
        so we are in total off by 2
 
        so basically our error = all the distances of points from our line added together
-       but wait, if the point is below our line, we can get a negative distance
-       to avoid that, lets square the distance and now it is positive
+       but wait what if a point is below our line
+
+
+     4 |        /
+     3 |    o / o
+     2 |    /
+     1 |o /
+     0 |/ _ _ _ _
+        0 1 2 3 4
+
+       our guess is y = x and the points are (0, 1), (2, 3), and (4, 3)
+       lets find the error of our line starting from the left
+
+        x  | our guess | actual
+       --------------------------
+        0  |     0     |   1
+        2  |     2     |   3
+        4  |     4     |   3
+
+       so we were off by 1, 1, and -1
+
+       wait a minute, that third distance is negative
+       just adding them together 1 + 1 + -1 means were we only off by 1
+       and that just does not make sense
+       there are a few ways to get around this
+
+       We can take the absolute value:
+          |1| + |1| + |-1| = 3
+
+       We can take the square of each:
+          1^2 + 1^2 + (-1)^2 = 3
+
+       The one taking the square seems more mathy so we will go with that. (some people beg to differ)
        so now our error = all the distances of points from our line squared and then added together
 
-       wait a second... that is a function
-       it takes in our line and the actual points and returns a number of how wrong our line is
-       f(our line, actual points) = sum of (each actual point - our line's guess)^2
+       you know, I just realized something about our error
+       it looks exactly like a function that people use
+       it takes in our line and the actual points and returns how wrong our line is
+       error(our line, actual points) = sum of (each actual point - our line's guess)^2
 
        so why does it matter that it is a function?
-       because a function is a line like below
+       because a squared function looks like the graph below (sort of)
 
 
      4 |\       /
@@ -93,19 +126,21 @@ Linear Regression want to do the Following
         0 1 2 3 4
 
        that is what a y = x^2 graph looks like (sort of)
-       and it always has that point at the bottom called a minimum
-       and that minimum is when our guess is the least wrong
-       and when our guess is the least wrong that must mean
-       we found the best answer (the best y = mx + b) yay!
+       do you see the lowest point on that graph around (2, 2)?
+       that point is called the minimum
+
+       because this is our error we obviously want to minimize it
+       and hopefully you can tell the minimum is where we have the least error
 
        but now how do we get to the minimum?
 
-       there are a lot of ways actually
+       there are actually a lot of ways to find the minimum
        but for now I will show you a common way to do it
 
-       now you must be wondering how what magic could find the minimum
-       lucky for you it is through the math you all know and love. Calculus (*cheers everywhere*)
-       we will put a point on the y = x^2 graph shown below (sort of)
+       the magic to find the minimum is through the math you all know and love. Calculus
+       (*cheers everywhere*)
+
+       the way this works is we choose a random point on the graph
 
 
      4 |\       /
@@ -116,9 +151,9 @@ Linear Regression want to do the Following
         0 1 2 3 4
 
 
-       as you can guess the point needs to move to the right to reach the minimum
+       as you can see the point needs to move to the right to reach the minimum
        the reason we know this is the slope is pointing that way
-       and how do we get slope of a function, through derivatives (yay!)
+       and how do we get slope of a function? through derivatives (yay!)
 
        so we continuously move in the direction pointed by the derivative
        we will eventually reach our answer
@@ -130,10 +165,18 @@ Linear Regression want to do the Following
     0 |_ _ _ _ _        0 |_ _ _ _ _        0 |_ _ _ _ _
        0 1 2 3 4           0 1 2 3 4           0 1 2 3 4
 
-       WOOOOO it worked. Sorry I surprised myself.
+       and we found the minimum.
+
+
+       but we need to find both m and b in y = mx + b
+       so our error graph is not some plebeian 2D graph
+       it is a 3D graph but it still works the same way
+       you can see all this and more in the actual implementation
 
 And that is how Linear Regression works
-The actual implementation follows the same rules but using matrices. (dont worry not that complex)
+The actual implementation follows the same rules but using matrices
+I highly recommend to look at why we use matrices so you can understand what is happening
 
-The way we found the minimum is actually separate from Linear Regression and is called gradient descent
-and I will go over it in more detail in another part of this repository
+On another note:
+The way we found the minimum is actually separate from Linear Regression
+it is a method called gradient descent and I will go over it in more detail in another part of this repository
