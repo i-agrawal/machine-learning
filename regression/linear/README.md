@@ -1,6 +1,8 @@
 # Linear Regression
 
-Linear Regression want to do the Following\n
+Linear Regression want to do the Following
+
+
        we have a bunch of points
        we want to find a line connecting those points
        so we want to get the correct y = mx + b (yes math I am sorry)
