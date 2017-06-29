@@ -133,6 +133,7 @@ I recommend reading the linear regression explanation before this.
             │ 3*1 + 1*1 │     │ 3*m + 1*b │
             └           ┘     └           ┘
 
+      this multiplication calulates the y = mx + b formula we wrote.
       thats right, this is how matrix multiplication is tied in with
       machine learning. It even works in more dimensions like 3D.
       
