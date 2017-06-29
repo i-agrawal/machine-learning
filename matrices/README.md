@@ -92,7 +92,7 @@ I recommend reading the linear regression explanation before this.
        Overall there are 3 rows and 2 columns
        So this is a 3x2 matrix.
 
-       Matrix Multiplication then does this
+       Matrix multiplication works like this:
        it does 1st row * 1st column and adds it altogether
        all into the spot 1, 1 like below
 
