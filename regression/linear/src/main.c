@@ -47,8 +47,8 @@ int main() {
 
   // Now we make a guess for our line looking at the data
   matrix * guess = create_matrix(2, 1);
-  guess->data[0] = 0.6;
-  guess->data[1] = 5;
+  guess->data[0] = 0.5;
+  guess->data[1] = 4;
   // y = 1 * x + 0 * 1;
 
   // Now lets graph it
@@ -79,7 +79,7 @@ int main() {
 
   // Lets start gradient descent
   double error, diff;
-  double alpha = 0.0001;
+  double alpha = 0.00001;
   matrix * gradients = create_matrix(2, 1);
   matrix * hypothesis = create_matrix(points, 1);
 
@@ -109,7 +109,7 @@ int main() {
     scale(gradients, -alpha / points, gradients);
     add(guess, gradients, guess);
 
-    while (clock() - time < CLOCKS_PER_SEC / 2);
+    while (clock() - time < CLOCKS_PER_SEC / 4);
   }
 
   // Lets clean up
