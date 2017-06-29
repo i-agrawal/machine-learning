@@ -1,7 +1,8 @@
 # Matrices and Machine Learning
 
 Machine learning is tied to linear algebra and matrices.  
-Although this may seem like a complicated subject it actually is pretty simple.
+Although this may seem like a complicated subject it actually is pretty simple.  
+I recommend reading the linear regression explanation before this.  
 
 
        lets look at linear regression as an example
@@ -53,58 +54,94 @@ Although this may seem like a complicated subject it actually is pretty simple.
                │ 3 │     │ 1 │     │ 4 │
                └   ┘     └   ┘     └   ┘
 
-        and we got all the values in one go.
-        To humans it basically looks exactly the same
-        but is different to a computer. There are a lot
-        of really fast ways to multiply matrices.
+       and we got all the values in one go.
+       To humans it basically looks exactly the same
+       but is different to a computer. There are a lot
+       of really fast ways to multiply matrices.
 
-        And there is even more. Lets say we try y = x + 1
-        one more time in a different way:
+       And there is even more. Lets say we try y = x + 1
+       one more time in a different way:
 
-          [ x  1 ]  *  [ m b ]  =    y
-          ┌      ┐      ┌   ┐      ┌   ┐
-          │ 1  1 │      │ 1 │      │ 2 │
-          │ 2  1 │  +   │ 1 │   =  │ 3 │
-          │ 3  1 │      └   ┘      │ 4 │
-          └      ┘                 └   ┘
+         [ x  1 ]  *  [ m b ]  =    y
+         ┌      ┐      ┌   ┐      ┌   ┐
+         │ 1  1 │      │ 1 │      │ 2 │
+         │ 2  1 │  *   │ 1 │   =  │ 3 │
+         │ 3  1 │      └   ┘      │ 4 │
+         └      ┘                 └   ┘
 
-        Now you probably don't understand what happened.
-        But you can see that the left matrix is our x values
-        with a bunch of ones.
-        The middle matrix is our m and b from y = mx + b.
-        And the y is the same answer we got above.
-        The way matrix multiplication works is below:
+       Now you probably don't understand what happened.
+       But you can see that the left matrix is our x values
+       with a bunch of ones.
+       The middle matrix is our m and b from y = mx + b.
+       And the y is the same answer we got above.
+       The way matrices works is below:
 
-             ┌      ┐
-          →  │ 1  1 │      Each one of these is a row
-          →  │ 2  1 │
-          →  │ 3  1 │
-             └      ┘
+            ┌      ┐
+         →  │ 1  1 │      Each one of these is a row
+         →  │ 2  1 │
+         →  │ 3  1 │
+            └      ┘
 
-               ↓  ↓
-             ┌      ┐
-             │ 1  1 │      Each one of these is a column
-             │ 2  1 │
-             │ 3  1 │
-             └      ┘
+              ↓  ↓
+            ┌      ┐
+            │ 1  1 │      Each one of these is a column
+            │ 2  1 │
+            │ 3  1 │
+            └      ┘
 
-             Overall there are 3 rows and 2 columns
-             So this is a 3x2 matrix.
-             Multiplication does this:
-             it does 1st row * 1st column and adds it altogether
-             all into the spot 1, 1 like below
+       Overall there are 3 rows and 2 columns
+       So this is a 3x2 matrix.
 
-             ┌      ┐      ┌   ┐      ┌     ┐
-             │ *1  1* │      │ *1* │    │ 1*1 + 1*1 │
-             │ 2  1 │  +   │ *1* │   =  │     │
-             │ 3  1 │      └   ┘      │     │
-             └      ┘                 └     ┘
+       Matrix Multiplication then does this
+       it does 1st row * 1st column and adds it altogether
+       all into the spot 1, 1 like below
 
+                           ↓
+            ┌      ┐     ┌   ┐     ┌           ┐     ┌   ┐
+         →  │ 1  1 │     │ 1 │     │ 1*1 + 1*1 │     │ 2 │
+            │ 2  1 │  *  │ 1 │  =  │           │  =  │   │
+            │ 3  1 │     └   ┘     │           │     │   │
+            └      ┘               └           ┘     └   ┘
 
-        (0, 1, 10), (2, -1, 7), (4, -3, 2)
+       and then it would do 2nd row * 1st column and add it together
+       all into spot 2, 1 like below
 
-        and we guess some random line z = 3x + 5y + 6
-        now we could calculate each one by hand or:
+                           ↓
+            ┌      ┐     ┌   ┐     ┌           ┐     ┌   ┐
+            │ 1  1 │     │ 1 │     │ 1*1 + 1*1 │     │ 2 │
+         →  │ 2  1 │  *  │ 1 │  =  │ 2*1 + 1*1 │  =  │ 3 │
+            │ 3  1 │     └   ┘     │           │     │   │
+            └      ┘               └           ┘     └   ┘
+
+       and then it would do 3rd row * 1st column and add it together
+       all into spot 3, 1 like below
+
+                           ↓
+            ┌      ┐     ┌   ┐     ┌           ┐     ┌   ┐
+            │ 1  1 │     │ 1 │     │ 1*1 + 1*1 │     │ 2 │
+            │ 2  1 │  *  │ 1 │  =  │ 2*1 + 1*1 │  =  │ 3 │
+         →  │ 3  1 │     └   ┘     │ 3*1 + 1*1 │     │ 4 │
+            └      ┘               └           ┘     └   ┘
+
+       and if there was a second column it would do it over again but
+       with the 1st row * 2nd column and add it all together in spot 1, 2.
+       Anyways if you notice the resulting matrix when rewritten is:
+
+            ┌           ┐     ┌           ┐
+            │ 1*1 + 1*1 │     │ 1*m + 1*b │
+            │ 2*1 + 1*1 │  =  │ 2*m + 1*b │  =  [ mx + b ]
+            │ 3*1 + 1*1 │     │ 3*1 + 1*1 │
+            └           ┘     └           ┘
+
+      thats right, this is how matrix multiplication is tied in with
+      machine learning. It even works in more dimensions like 3D.
+      
+      We have the following 3D points in (x, y, z)
+
+       (0, 1, 10), (2, -1, 7), (4, -3, 2)
+
+      and we guess some random line z = 3x + 5y + 6
+      now we could calculate each one by hand or:
 
 
           [ x   y   1 ]  *  guess  =    z
@@ -114,4 +151,28 @@ Although this may seem like a complicated subject it actually is pretty simple.
           │ 4  -3   1 │     │ 6 │     │  3 │
           └           ┘     └   ┘     └    ┘
 
-        now you probably cant tell what is happening
+      and voila, the matrix multiplication works in 3D space.
+      And even more uses such as making equations easier.
+
+      like       z = 3x + 5y + 6
+      becomes    z = guess * inputs
+
+      and if you read the linear regression explanation we had
+      the error function of
+
+      2D         (correct - (mx + b))^2       / (2 * number of points)
+      3D         (correct - (ax + by + c))^2  / (2 * number of points)
+      now        (correct - guess * inputs)^2 / (2 * rows)
+
+      and for all the math people who know derivatives (others can skip)
+      before you needed to take derivatives with respect m and b or
+      a, b, and c but now it is simply one equation
+
+      slope      inputs * (guess * inputs - outputs) / rows
+
+      and there are even more reasons to use matrices but I think this
+      is good enough.
+
+Hopefully you can see why we are using matrices, not only because computers  
+handle them better but they also (sort of) simply the math which we all  
+know is for the better.  
