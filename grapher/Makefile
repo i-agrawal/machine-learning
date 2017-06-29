@@ -2,20 +2,26 @@ OBJ = obj
 SRC = src
 BIN = bin
 INC = include
-EXE = mmtest
+EXE = graphtest
 
 DEP = $(wildcard $(INC)/*.h)
 MID = $(patsubst $(SRC)/%.c, $(OBJ)/%.o, $(wildcard $(SRC)/*.c))
 FIN = $(BIN)/$(EXE)
 
-CC = gcc
-OFLAGS = -O3 -I$(INC)
+GRAPHDIR = $(CURDIR)/gnuplot-src
+GRAPHER = $(GRAPHDIR)/install/bin/gnuplot
 
-$(FIN) : $(MID)
-	$(CC) -o $@ $^ $(CFLAGS)
+CC = gcc
+OFLAGS = -O3 -I$(INC) -DPLOTTER='"$(GRAPHER)"'
+
+$(FIN) : $(MID) $(GRAPHER)
+	$(CC) -o $@ $(MID) $(CFLAGS)
 
 $(OBJ)/%.o : $(SRC)/%.c $(DEP)
 	$(CC) -c -o $@ $< $(OFLAGS)
+
+$(GRAPHER) :
+	$(MAKE) -C $(GRAPHDIR)
 
 .PHONY: display clean
 display:

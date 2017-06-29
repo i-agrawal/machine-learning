@@ -4,37 +4,31 @@ BIN = bin
 INC = include
 EXE = linreg
 MML = ../../simple-matrices
+GRL = ../../grapher
 
 MMO = $(MML)/$(OBJ)/mm.o
 MMM = $(MML)/Makefile
+GRO = $(GRL)/$(OBJ)/grapher.o
+GRM = $(GRL)/Makefile
+
 DEP = $(wildcard $(INC)/*.h)
 MID = $(patsubst $(SRC)/%.c, $(OBJ)/%.o, $(wildcard $(SRC)/*.c))
 FIN = $(BIN)/$(EXE)
 
-GRAPHDIR = ../../gnuplot
-GRAPHNAME = gnuplot
-GRAPHER = $(GRAPHDIR)/install/bin/$(GRAPHNAME)
-
 CC = gcc
-OFLAGS = -O3 -I$(MML)/$(INC) -I$(INC)
-CFLAGS = $(MMO)
-ifneq ($(OS),Windows_NT)
-  ifeq ($(shell uname -s),Darwin)
-    CFLAGS += -framework Accelerate
-  endif
-endif
+OFLAGS = -O3 -I$(MML)/$(INC) -I$(INC) -I$(GRL)/$(INC)
 
-$(FIN): $(MID) $(MMO) $(GRAPHER)
+$(FIN): $(MID) $(MMO) $(GRO)
 	$(CC) -o $@ $^ $(CFLAGS)
 
 $(MMO): $(MMM)
-	make -C $(MML)
+	$(MAKE) -C $(MML)
+
+$(GRO): $(GRM)
+	$(MAKE) -C $(GRL)
 
 $(OBJ)/%.o: $(SRC)/%.c $(DEP)
 	$(CC) -c -o $@ $< $(OFLAGS)
-
-$(GRAPHER) : $(GRAPHDIR)/Makefile
-	make -C $(GRAHPDIR)
 
 .PHONY: display clean
 display:
@@ -43,5 +37,4 @@ display:
 	@ECHO $(FIN)
 
 clean:
-	make -C $(MML) clean
 	rm -rf $(MID) $(FIN)

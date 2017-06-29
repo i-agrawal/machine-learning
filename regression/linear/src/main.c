@@ -1,87 +1,122 @@
 #define DOUBLE_PRECISION
 
 #include "mm.h"
+#include "grapher.h"
 #include <stdio.h>
 #include <stdlib.h>
-
-typedef struct {
-  void * act;    // Activation Function
-  void * error;  // Error Function
-  void * derror; // Error Function Derivative
-
-  matrix * theta; // The Regression's Weights
-} regression;
-
-regression * create_linear(int);
-void linear_activation(matrix *, matrix *, matrix *);
-void linear_error(matrix *, matrix *);
-void
-
-regression * create_linear(int vars) {
-  act =
-}
-
-void linear_activation(matrix * X, matrix * theta, matrix * Y) {
-  multiply(X, theta, Y);
-}
+#include <time.h>
 
 int main() {
-  int i;
 
   // ------------------------------------------------- //
-  // We are going to learn f(a, b) = 1.5a + 2.5b + 3.5 //
-  // NOTE: 3.5 is multiplying c but c is always 1      //
+  // We are going to learn a y = mx + b for some data  //
+  // To see the data look at res/linear.dat            //
   // ------------------------------------------------- //
 
-  int vars = 2;                               // There are 2 variables
-  matrix * actual = create_matrix(vars+1, 1); // Actual weights multiplying a, b, and c
-  actual->data[0] = 1.5;                      // Weight for a is 1.5
-  actual->data[1] = 2.5;                      // Weight for b is 2.5
-  actual->data[2] = 3.5;                      // Weight for c is 3.5
-
-  // We need data to learn from
-  int samples = 1000;                                   // We will have 1000 samples
-  matrix * inputs = create_matrix(samples, vars+1);     // Matrix of inputs, each row is a sample's input
-  matrix * correct_outputs = create_matrix(samples, 1); // Matrix of outputs, each row is a sample's correct output
-
-  // Let us create the data since we know the correct output
-  printf("Creating Random Data\n");
-  for (i = 0; i < samples; i++) {
-    inputs->data[3*i]   = (double)(rand() % 500) / 5;   // Randomly select a for this sample
-    inputs->data[3*i+1] = (double)(rand() % 500) / 5;   // Randomly select b for this sample
-    inputs->data[3*i+2] = 1;                            // c is always 1
+  // First lets get our points from res/linear.dat
+  FILE * data = fopen("res/linear.dat", "r");
+  if (data == NULL) {
+    fprintf(stderr, "failed to open the data file\n");
+    return -1;
   }
 
-  // Let us calculate the correct outputs
-  multiply(inputs, actual, correct_outputs);
+  // Lets get how many data points
+  int ch, points = 0;
+  for (ch = getc(data); ch != EOF; ch = getc(data)) {
+    // If there is a newline that means a new point
+    if (ch == '\n') points++;
+  }
+  
+  // Lets create the matrix for inputs and outputs
+  matrix * inputs = create_matrix(points, 2);
+  matrix * outputs = create_matrix(points, 1);
 
-  // We are going to display some samples
-  printf("Displaying First Few Samples\n");
-  int display = 5; // We will display the first 5 samples
-  for (i = 0; i < display; i++) {
-    printf("%g * %g + %g * %g + %g * %g = %g\n", actual->data[0], inputs->data[3*i], actual->data[1], inputs->data[3*i+1], actual->data[2], inputs->data[3*i+2], correct_outputs->data[i]);
+  // Move the file pointer to the beginning again
+  fseek(data, 0, SEEK_SET);
+
+  // Put the points into the matrices
+  int i, j;
+  for (i = 0; i != points; i++) {
+    // Get x value to mulitply by m
+    fscanf(data, "%lf", inputs->data + 2*i);
+    // Put 1 value to multiply by b
+    inputs->data[2*i + 1] = 1;
+    // Get y value to for the correct value
+    fscanf(data, "%lf", outputs->data + i);
   }
 
-  // Now we get into the actual linear regression
+  // Now we make a guess for our line looking at the data
+  matrix * guess = create_matrix(2, 1);
+  guess->data[0] = 0.5;
+  guess->data[1] = 4;
+  // y = 1 * x + 0 * 1;
 
-  regression * linreg = create_linear(vars);
+  // Now lets graph it
+  window * graph = create_window();
+  double m = guess->data[0];
+  double b = guess->data[1];
+  send_command(graph, "set xrange [-5:200]");
+  send_command(graph, "set yrange [-1:60]");
+  send_command(graph, "plot \"res/linear.dat\"");
+  draw_line(graph, m, b);
 
-  // Linear Regression wants to do the following
-  //      given inputs a, b, c, ...
-  //      and f(a, b, c, ...) = w1*a + w2*b + w3*c + ...
-  //      we want to find w1, w2, w3, ...
-  // So why the hell do we have matrices
-  //    |
-  //    | a  b  c
-  //    |
-  //    |
-  //    |
-  // As a matrix multiplication it is simply f(θ, X) (hyp) equals the inputs (X) times the weights (θ)
-  // so the activation function is hyp = Xθ
+  // See it for 3 seconds
+  unsigned long time = clock();
+  while (clock() - time < CLOCKS_PER_SEC * 3);
 
-  // The Error is a simply the square of the difference (to make it positive)
-  // The difference is simply hyp - Y
+  // Get how many iterations of gradient descent
+  int iterations;
+  printf("How Many Iterations: ");
+  fflush(stdout);
+  scanf("%d", &iterations);
 
+  // Lets transpose inputs for later
+  matrix * inputs_t = create_matrix(2, points);
+  for (i = 0; i != points; i++) {
+    inputs_t->data[i] = inputs->data[2*i];
+    inputs_t->data[points + i] = 1;
+  }
+
+  // Lets start gradient descent
+  double error, diff;
+  double alpha = 0.0001;
+  matrix * gradients = create_matrix(2, 1);
+  matrix * hypothesis = create_matrix(points, 1);
+
+  for (i = 0; i != iterations; i++) {
+    // Graph every iteration to show difference
+    m = guess->data[0];
+    b = guess->data[1];
+    send_command(graph, "plot \"res/linear.dat\"");
+    draw_line(graph, m, b);
+
+    time = clock();
+    multiply(inputs, guess, hypothesis); // hyp = ax + b
+
+    for (error = 0, j = 0; j != points; j++) {
+      // Get the error from our guess
+      hypothesis->data[j] -= outputs->data[j];  // hyp = ax + b - y
+      diff = hypothesis->data[j];
+      error += diff * diff;
+    }
+    error = error / (2 * points);
+    printf("iteration %d: %f error\n", i+1, error);
+
+    // The function is (outputs - (guess * inputs))^2 / 2M
+    // Take derivative with respect to guess
+    // inputs * (guess - outputs) / M
+    multiply(inputs_t, hypothesis, gradients);
+    scale(gradients, -alpha / points, gradients);
+    add(guess, gradients, guess);
+
+    while (clock() - time < CLOCKS_PER_SEC / 2);
+  }
+
+  // Lets clean up
+  destroy_matrix(inputs);
+  destroy_matrix(outputs);
+  destroy_matrix(guess);
+  destroy_window(graph);
 
   return 0;
 }
