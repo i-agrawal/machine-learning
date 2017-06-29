@@ -153,7 +153,7 @@ I recommend reading the linear regression explanation before this.
           └           ┘     └   ┘     └    ┘
 
       and voila, the matrix multiplication works in 3D space.
-      And even more uses such as making equations easier.
+      And there are even more uses such as making equations easier.
 
       like       z = 3x + 5y + 6
       becomes    z = guess * inputs
@@ -161,9 +161,9 @@ I recommend reading the linear regression explanation before this.
       and if you read the linear regression explanation we had
       the error function of
 
-      2D         (correct - (mx + b))^2       / (2 * number of points)
-      3D         (correct - (ax + by + c))^2  / (2 * number of points)
-      now        (correct - guess * inputs)^2 / (2 * rows)
+      2D               (correct - (mx + b))^2       / (2 * number of points)
+      3D               (correct - (ax + by + c))^2  / (2 * number of points)
+      any dimension    (correct - guess * inputs)^2 / (2 * rows)
 
       and for all the math people who know derivatives (others can skip)
       before you needed to take derivatives with respect m and b or
