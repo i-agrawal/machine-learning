@@ -177,7 +177,7 @@ And that is how Linear Regression works
 
 ![alt text](res/regression.gif)
 
-The actual implementation follows the same rules but using matrices
+The actual implementation follows the same rules but using matrices  
 I highly recommend to look at why we use matrices so you can understand what is happening
 
 On another note:
