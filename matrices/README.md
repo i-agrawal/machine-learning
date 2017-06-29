@@ -174,6 +174,8 @@ I recommend reading the linear regression explanation before this.
       and there are even more reasons to use matrices but I think this
       is good enough.
 
-Hopefully you can see why we are using matrices, not only because computers  
-handle them better but they also (sort of) simply the math which we all  
-know is for the better.  
+Hopefully you can see why we are using matrices.
+
+Not only because computers handle them better but
+they also (sort of) simplify the math which we all  
+know is a good thing.
