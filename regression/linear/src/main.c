@@ -47,8 +47,8 @@ int main() {
 
   // Now we make a guess for our line looking at the data
   matrix * guess = create_matrix(2, 1);
-  guess->data[0] = 0.5;
-  guess->data[1] = 4;
+  guess->data[0] = 0.6;
+  guess->data[1] = 5;
   // y = 1 * x + 0 * 1;
 
   // Now lets graph it
