@@ -33,7 +33,7 @@ I recommend reading the linear regression explanation before this.
        and our line gives us (1, 2), (2, 3), and (3, 4)
 
        the problem is we had to calculate those all one by one
-       and thats where matrixes come in
+       and thats where matrices come in
 
        lets make a matrix of all the x values
 
