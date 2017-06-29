@@ -142,7 +142,7 @@ I recommend reading the linear regression explanation before this.
        (0, 1, 10), (2, -1, 7), (4, -3, 2)
 
       and we guess some random line z = 3x + 5y + 6
-      now we could calculate each one by hand or:
+      now, we could calculate each one by hand orrr...
 
 
           [ x   y   1 ]  *  guess  =    z
