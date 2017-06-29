@@ -3,7 +3,7 @@ SRC = src
 BIN = bin
 INC = include
 EXE = linreg
-MML = ../../simple-matrices
+MML = ../../matrices
 GRL = ../../grapher
 
 MMO = $(MML)/$(OBJ)/mm.o
