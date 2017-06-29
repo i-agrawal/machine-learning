@@ -130,7 +130,7 @@ I recommend reading the linear regression explanation before this.
             ┌           ┐     ┌           ┐
             │ 1*1 + 1*1 │     │ 1*m + 1*b │
             │ 2*1 + 1*1 │  =  │ 2*m + 1*b │  =  [ mx + b ]
-            │ 3*1 + 1*1 │     │ 3*1 + 1*1 │
+            │ 3*1 + 1*1 │     │ 3*m + 1*b │
             └           ┘     └           ┘
 
       thats right, this is how matrix multiplication is tied in with
