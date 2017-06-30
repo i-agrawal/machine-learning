@@ -17,3 +17,5 @@ Also know that nothing here is as highly optimized as the hard working people
 
 Also since we use gnuplot you must be careful and follow their Copywrite when using and
 especially if modifying this repository.
+
+In order to keep an easy to read structure, the build process currently features recursive make calls. If you have ever read Peter Miller's ![paper](http://aegis.sourceforge.net/auug97.pdf) it is a potentially slow build structure but it is all for the sake of clarity so please forgive me.

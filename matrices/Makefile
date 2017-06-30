@@ -9,7 +9,7 @@ MID = $(patsubst $(SRC)/%.c, $(OBJ)/%.o, $(wildcard $(SRC)/*.c))
 FIN = $(BIN)/$(EXE)
 
 CC = gcc
-OFLAGS = -O3 -I$(INC)
+OFLAGS = -O2 -I$(INC)
 
 $(FIN) : $(MID)
 	$(CC) -o $@ $^ $(CFLAGS)

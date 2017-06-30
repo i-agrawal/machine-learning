@@ -7,7 +7,6 @@ typedef struct {
 
 window * create_window();
 void destroy_window(window *);
-void send_command(window *, char *);
-void draw_line(window *, double, double);
+void send_command(window *, char *, ...);
 
 #endif

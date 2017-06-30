@@ -58,7 +58,7 @@ int main() {
   send_command(graph, "set xrange [-5:200]");
   send_command(graph, "set yrange [-1:60]");
   send_command(graph, "plot \"res/linear.dat\"");
-  draw_line(graph, m, b);
+  send_command(graph, "replot %g * x + %g", m, b);
 
   // See it for 3 seconds
   unsigned long time = clock();
@@ -88,7 +88,7 @@ int main() {
     m = guess->data[0];
     b = guess->data[1];
     send_command(graph, "plot \"res/linear.dat\"");
-    draw_line(graph, m, b);
+    send_command(graph, "replot %g * x + %g", m, b);
 
     time = clock();
     multiply(inputs, guess, hypothesis); // hyp = ax + b

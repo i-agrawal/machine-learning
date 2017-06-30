@@ -10,9 +10,10 @@ FIN = $(BIN)/$(EXE)
 
 GRAPHDIR = $(CURDIR)/gnuplot-src
 GRAPHER = $(GRAPHDIR)/install/bin/gnuplot
+VAR_NAME = GNUPLOT_LOC
 
 CC = gcc
-OFLAGS = -O3 -I$(INC) -DPLOTTER='"$(GRAPHER)"'
+OFLAGS = -O3 -I$(INC) -D$(VAR_NAME)='"$(GRAPHER)"'
 
 $(FIN) : $(MID) $(GRAPHER)
 	$(CC) -o $@ $(MID) $(CFLAGS)

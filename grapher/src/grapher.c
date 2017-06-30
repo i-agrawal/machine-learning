@@ -1,14 +1,15 @@
 #include "grapher.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdarg.h>
 
-#ifndef PLOTTER
-#define PLOTTER "gnuplot-src/install/bin/gnuplot",
+#ifndef GNUPLOT_LOC
+#define GNUPLOT_LOC "gnuplot"
 #endif
 
 window * create_window() {
   window * ptr = (window *)malloc(sizeof(window));
-  FILE * session = popen(PLOTTER, "w");
+  FILE * session = popen(GNUPLOT_LOC, "w");
   if (session == NULL) {
     fprintf(stderr, "unable to open gnuplot binary\n");
   }
@@ -24,17 +25,16 @@ void destroy_window(window * win) {
   fprintf((FILE *)win->session, "exit\n");
   status = pclose((FILE *)win->session);
   if (status == -1) {
-    fprintf(stderr, "unable to close gnuplot window");
+    fprintf(stderr, "unable to close gnuplot window\n");
   }
 }
 
 // Assume commands dont end with newline
-void send_command(window * win, char * cmd) {
-  fprintf((FILE *)win->session, "%s\n", cmd);
-  fflush((FILE *)win->session);
-}
-
-void draw_line(window * win, double m, double b) {
-  fprintf((FILE *)win->session, "replot %g * x + %g\n", m, b);
+void send_command(window * win, char * format, ...) {
+  va_list args;
+  va_start(args, format);
+  vfprintf((FILE *)win->session, format, args);
+  va_end(args);
+  fprintf((FILE *)win->session, "\n");
   fflush((FILE *)win->session);
 }
