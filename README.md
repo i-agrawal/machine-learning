@@ -17,11 +17,11 @@ This README will serve as the introduction to machine learning and starts below.
         40              More electrons than in the universe
       
       So yeah... I dont think my computer can even handle 4 moves.
-      Lets not calculate every outcome.
+      And a large amount of chess bots just calculate 3 moves ahead.
+      Instead we are going to look at how children learn to play chess.
       
-      Instead lets look at how children learn to play the game.
-      
-        A child would try playing the game first.
+        A child does not bother trying to calculate everything.
+        A child tries playing a game first.
         Then when they lose they will try again.
         After repeating this process again and again the child will get better.
       
@@ -41,7 +41,7 @@ This README will serve as the introduction to machine learning and starts below.
 
       As an example for supervised learning, lets say we are asked
         to predict what the height a girl at 10 years old.
-        And we are given the following
+      And we are given the following
       
                              Female height vs. age
         height (in)
