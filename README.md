@@ -5,114 +5,74 @@ The README.md in each folder will explain how each concept works.
 This README will serve as the introduction to machine learning and starts below.
 
       Imagine trying to write a program to play chess.
-      An easy solution is we have the computer calculate every outcome and choose accordingly.
-      Let see how that would work out.
+      Most chess bots calculate the possible outcomes of each move and choose the move
+        with the best outcomes.
+      But the more moves in the future it calculates, the more outcomes.
+      So just how many outcomes would there be?
       
-        Moves           Outcomes        
-        1               400
-        2               72,084
-        3               9+ million
-        4               288+ billion
-        ...
-        40              More electrons than in the universe
+        Moves Ahead          Possible Outcomes        
+        1                    400
+        2                    72,084
+        3                    9+ million
+        4                    288+ billion
+        ...                  ...
+        40                   More electrons than in the universe
       
-      So yeah... I dont think my computer can even handle 4 moves.
-      And a large amount of chess bots just calculate 3 moves ahead.
-      Instead we are going to look at how children learn to play chess.
+      At around 4 moves it basically becomes too much for the computer to handle.
+      That is why most chess programs that use this method usually look 3 moves ahead.
+      But we dont want such a complicated approach.
+      Humans dont calculate every possible move yet some can play better than a bot.
+      So if we want a chess program that plays like a human we should look at
+        how a human learns to play chess.
       
-        A child does not bother trying to calculate everything.
-        A child tries playing a game first.
-        Then when they lose they will try again.
-        After repeating this process again and again the child will get better.
+        Lets say we have some guy who wants to learn to play chess.
+        Rather than going overboard and looking up a lot of strategy,
+          he jumps right in and plays a game.
+        He is not very experienced so he loses.
+        But he jumps back in and plays another game.
+        After playing a lot of games he gets better and better.
       
-      That is what we should do.
-      And that is what machine learning is all about.
-      We give the computer experience and have it learn to do something.
-      
-      Now there are two main ways we can get our computer to learn:
-      
-        Supervised Learning - Given examples with their outcome
-                              the computer must learn to predict
-                              the outcome.
+      That sounds like a pretty normal way of how a lot of people learn chess.
+      It also sounds like a pretty normal way that people learn anything.
+      And that is the process we use to get computers to learn.
+      Machine learning is all about giving the computer experience and using
+        that experience we have it learn.
 
-        Unsupervised Learning - Given examples without the outcome
-                                the computer must give us some
-                                information about them.
-
-      As an example for supervised learning, lets say we are asked
-        to predict what the height a girl at 10 years old.
-      And we are given the following
+      The way we give computers experience is in the form of data.
+      Lets look at a new example, of height vs. age and we have the
+        following data.
       
-                             Female height vs. age
+                                height vs. age
         height (in)
             │
          80 │                                                     x
             │                                   x   x     x x   x   x
             │                   x       x   x x   x   x x     x   x   x
-            │             x x x   x   x   x   x
-         40 │       x   x x   x x   x
-            │     x   x   x
+            │                 x   x   x   x   x
+         40 │         x x x   x x   x
+            │     x       x
             │       x
             │
           0 └──────────────────────────────────────────────────────────
             0                          10                            20
-                                 age (years)
+                                   age (years)
       
-      An ok way to predict height would be a straight line in the graph.
-      Obviously there is no perfect line but we want an ok fit.
+      If you were to format this data it would look something like this.
       
-        height (in)
-            │
-         80 │                                                     x
-            │                                   x   x     x x  _____‾‾‾‾
-            │                   x       x   x x   x  _____‾‾‾‾‾   x   x
-            │             x x x   x   x    _____‾‾‾‾‾
-         40 │       x   x x   x x_____‾‾‾‾‾
-            │     x   x_____‾‾‾‾‾
-            │_____‾‾‾‾‾
-            │
-          0 └──────────────────────────────────────────────────────────
-            0                          10                            20
-                                 age (years)
+        Age (years)       Height (in)
+        2                 31
+        2.5               29
+        3                 40
+        3.5               43
+        4                 43
+        4.5               39
+        4.5               44
+        ...               ...
       
-      I created this beautiful line above to predict height given age.
-      And if you were to fit a straight line to this graph you would
-        probably get something similar.
+      I will go over what this data means, how we use it, and so on in
+        further into the repository.
       
-      I know you would get something similar because you would create
-        your line trying to hit the points in the graph.
-      
-      And that is what supervised learning is.
-      Given an input and the correct output the computer must somehow
-        learn to predict the correct output.
-      Now if you looked at the data you may see it would be better fit
-        as a curved line rather than straight and we will get into
-        that later.
-      
-      
-      After supervised learning, there is unsupervised learning.
-      For an example of unsupervised learning lets say we are given
-        some data and we need to find some information.
-      
-                     Amount of Gene A and B Expressed
-          Gene A
-            │
-            │                                 x   x
-            │                                   x   x x
-            │                   x x           x   x x
-            │                 x x     x     x
-            │           x       x   x
-            │     x x     x
-            │       x x
-            │
-            └───────────────────────────────────────────────
-                                 Gene B
-      
-      Keep in mind that we are not trying to predict Gene A given B.
-      From looking at the data, some pretty good information we can find
-        is that there are 3 groups of people.
-      
-          
+
 Each concept comes with an implementation in c and comes with a Makefile.  
 The visualization is thanks to the great program gnuplot.  
 
