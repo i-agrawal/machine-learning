@@ -30,7 +30,7 @@ This README will serve as the introduction to machine learning and starts below.
       There are two types of learning, supervised and unsupervised.
       For supervised, Lets say we are asked to predict the height
         of a ten year old and we are given the following graph.
-
+      
         height (in)
             │
          80 │                                                     x
@@ -44,25 +44,27 @@ This README will serve as the introduction to machine learning and starts below.
           0 └──────────────────────────────────────────────────────────
             0                          10                            20
                                  age (years)
-
-        An ok way to predict height would be a straight line in the graph.
-        Obviously there is no perfect line but we an ok fit.
-
+      
+      An ok way to predict height would be a straight line in the graph.
+      Obviously there is no perfect line but we an ok fit.
+      
         height (in)
             │
          80 │                                                     x
-            │                                   x   x     x x  ____/‾‾‾‾
-            │                   x       x   x x   x  ____/‾‾‾‾‾   x   x
-            │             x x x   x   x    ____/‾‾‾‾‾
-         40 │       x   x x   x x____/‾‾‾‾‾
-            │     x   x____/‾‾‾‾‾
-            │____/‾‾‾‾‾
+            │                                   x   x     x x  _____‾‾‾‾
+            │                   x       x   x x   x  _____‾‾‾‾‾   x   x
+            │             x x x   x   x    _____‾‾‾‾‾
+         40 │       x   x x   x x_____‾‾‾‾‾
+            │     x   x_____‾‾‾‾‾
+            │_____‾‾‾‾‾
             │
           0 └──────────────────────────────────────────────────────────
             0                          10                            20
                                  age (years)
         
-         I created the line 
+      I created this beautiful line by trying to match the points.
+      This is considered supervised learning because I created this line
+        given the "correct" answers which are the points on this line.
 
           
 Each concept comes with an implementation in c and comes with a Makefile.  
