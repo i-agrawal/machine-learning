@@ -6,20 +6,22 @@ This README will serve as the introduction to machine learning and starts below.
 
       Imagine trying to write a program to play chess.
       An easy solution is we have the computer calculate every outcome and choose accordingly.
-      Let see how that would work.
+      Let see how that would work out.
       
-        After each player makes one move there are 400 different outcomes.
-        After each player makes two moves there are 72,084 different outcomes.
-        After each player makes three moves there are more than 9 million outcomes.
-        After each player makes four moves there are more than 288 billion outcomes.
-        After each player makes fourty moves there are more moves than electrons in the universe.
+        Moves           Outcomes        
+        1               400
+        2               72,084
+        3               9+ million
+        4               288+ billion
+        ...
+        40              More electrons than in the universe
       
-      So yeah... I dont think my computer cant even handle 4 moves.
+      So yeah... I dont think my computer can even handle 4 moves.
       Lets not calculate every outcome.
       
       Instead lets look at how children learn to play the game.
       
-        A child would just try playing the game first.
+        A child would try playing the game first.
         Then when they lose they will try again.
         After repeating this process again and again the child will get better.
       
@@ -27,10 +29,21 @@ This README will serve as the introduction to machine learning and starts below.
       And that is what machine learning is all about.
       We give the computer experience and have it learn to do something.
       
-      There are two types of learning, supervised and unsupervised.
-      For supervised, Lets say we are asked to predict the height
-        of a ten year old and we are given the following graph.
+      Now there are two main ways we can get our computer to learn:
       
+        Supervised Learning - Given examples with their outcome
+                              the computer must learn to predict
+                              the outcome.
+
+        Unsupervised Learning - Given examples without the outcome
+                                the computer must give us some
+                                information about them.
+
+      As an example for supervised learning, lets say we are asked
+        to predict what the height of a ten year old girl is.
+        And we are given the following
+      
+                             Female height vs. age
         height (in)
             │
          80 │                                                     x
@@ -61,11 +74,44 @@ This README will serve as the introduction to machine learning and starts below.
           0 └──────────────────────────────────────────────────────────
             0                          10                            20
                                  age (years)
-        
-      I created this beautiful line by trying to match the points.
-      This is considered supervised learning because I created this line
-        given the "correct" answers which are the points on this line.
-
+      
+      I created this beautiful line above to predict height given age.
+      And if you were to fit a straight line to this graph you would
+        probably get something similar.
+      
+      I know you would get something similar because you would create
+        your line trying to hit the points in the graph.
+      
+      And that is what supervised learning is.
+      Given an input and the correct output the computer must somehow
+        learn to predict the correct output.
+      Now if you looked at the data you may see it would be better fit
+        as a curved line rather than straight and we will get into
+        that later.
+      
+      
+      After supervised learning, there is unsupervised learning.
+      For an example of unsupervised learning lets say we are given
+        some data and we need to find some information.
+      
+                     Amount of Gene A and B Expressed
+          Gene A
+            │
+            │                                 x   x
+            │                                   x   x x
+            │                   x x           x   x x
+            │                 x x     x     x
+            │           x       x   x
+            │     x x     x
+            │       x x
+            │
+            └───────────────────────────────────────────────
+                                 Gene B
+      
+      Keep in mind that we are not trying to predict Gene A given B.
+      From looking at the data, some pretty good information we can find
+        is that there are 3 groups of people.
+      
           
 Each concept comes with an implementation in c and comes with a Makefile.  
 The visualization is thanks to the great program gnuplot.  
