@@ -1,13 +1,23 @@
 # Machine Learning
 
 This repository aims to implement and explain basic concepts of machine learning.  
-
-    Currently this repository has these explanations and recommends reading in this order:
-    1. Linear Regression (located in regression/linear)
-    2. Matrices and Machine Learning (located in matrices)
-
 The README.md in each folder will explain how each concept works.  
-The actual implementation is done in c and comes with a Makefile.  
+This README will serve as the introduction to machine learning and starts below.
+
+Imagine trying to write a program to play chess.  
+One thing we could do is make it analyze every possible outcome and choose the move with the highest chance of winning.
+Each player has 16 pieces.  
+After each player makes a move there are 400 different outcomes.  
+Okay a computer can handle that easily.  
+After each player makes another move there are 72,084 different outcomes.  
+Okay still well reachable by a computer.  
+After each player makes another move there are more than 9 million outcomes.  
+Okay thats a lot, but a computer can still handle that.  
+After each player makes another move there are more than 288 billion outcomes.  
+Okay so... yeah if thats only four moves I dont think my computer can handle it.  
+
+
+Each concept comes with an implementation in c and comes with a Makefile.  
 The visualization is thanks to the great program gnuplot.  
 
 This repository is a work in progress and may have spelling mistakes (sorry :P)  
