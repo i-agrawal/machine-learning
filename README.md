@@ -40,7 +40,7 @@ This README will serve as the introduction to machine learning and starts below.
                                 information about them.
 
       As an example for supervised learning, lets say we are asked
-        to predict what the height of a ten year old girl is.
+        to predict what the height a girl at 10 years old.
         And we are given the following
       
                              Female height vs. age
