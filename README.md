@@ -4,19 +4,35 @@ This repository aims to implement and explain basic concepts of machine learning
 The README.md in each folder will explain how each concept works.  
 This README will serve as the introduction to machine learning and starts below.
 
-      Imagine trying to write a program to play chess.  
-      An easy solution is we have the computer calculate every outcome and choose accordingly.  
+      Imagine trying to write a program to play chess.
+      An easy solution is we have the computer calculate every outcome and choose accordingly.
+      Let see how that would work.
+      
+        After each player makes one moves there are 400 different outcomes.
+        After each player makes two moves there are 72,084 different outcomes.
+        After each player makes three moves there are more than 9 million outcomes.
+        After each player makes four moves there are more than 288 billion outcomes.
+        After each player makes fourty moves there are more moves than electrons in the universe.
+      
+      So yeah... I dont think my computer cant even handle 4 moves.
+      Lets not calculate every outcome.
+      
+      Instead lets look at how children learn to play the game.
+      
+        A child would just try playing the game first.
+        Then when they lose they will try again.
+        After repeating this process again and again the child will get better.
+      
+      That is what we should do.
+      And that is what machine learning is all about.
+      We give the computer experience and have it learn to do something.
+      
+      Now there are two possible ways for a computer to learn something:
+      
+        Supervised Learning where we teach the computer
+        Unsupervised Learning where we let the computer learn by itself
       
       
-      After each player makes a move there are 400 different outcomes.  
-      Okay a computer can handle that easily.  
-      After each player makes another move there are 72,084 different outcomes.  
-      Okay still well reachable by a computer.  
-      After each player makes another move there are more than 9 million outcomes.  
-      Okay thats a lot, but a computer can still handle that.  
-      After each player makes another move there are more than 288 billion outcomes.  
-      Okay so... yeah if thats only four moves I dont think my computer can handle it.  
-
 
 Each concept comes with an implementation in c and comes with a Makefile.  
 The visualization is thanks to the great program gnuplot.  
