@@ -8,7 +8,7 @@ This README will serve as the introduction to machine learning and starts below.
       An easy solution is we have the computer calculate every outcome and choose accordingly.
       Let see how that would work.
       
-        After each player makes one moves there are 400 different outcomes.
+        After each player makes one move there are 400 different outcomes.
         After each player makes two moves there are 72,084 different outcomes.
         After each player makes three moves there are more than 9 million outcomes.
         After each player makes four moves there are more than 288 billion outcomes.
@@ -27,11 +27,72 @@ This README will serve as the introduction to machine learning and starts below.
       And that is what machine learning is all about.
       We give the computer experience and have it learn to do something.
       
-      Now there are two possible ways for a computer to learn something:
+      There are two types of learning, supervised and unsupervised.
+      Lets say we are trying to get the age of a person from their height.
       
-        Supervised Learning where we teach the computer
-        Unsupervised Learning where we let the computer learn by itself
+        │
+        │
+        │
+        │
+        │
+        └────────────────────────────────────────────────────────
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       
+        
       
 
 Each concept comes with an implementation in c and comes with a Makefile.  
