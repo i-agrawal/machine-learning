@@ -28,27 +28,42 @@ This README will serve as the introduction to machine learning and starts below.
       We give the computer experience and have it learn to do something.
       
       There are two types of learning, supervised and unsupervised.
-      Lets say we are asked to predict the height of a ten year old
-        and we are given the following graph.
-      
-      height (in)
-          │
-       80 │                                                     x
-          │                                   x   x     x x  _____‾‾‾
-          │                   x       x   x x   x  _____‾‾‾‾‾   x   x
-          │             x x x   x   x    _____‾‾‾‾‾
-       40 │       x   x x   x x_____‾‾‾‾‾
-          │     x   x_____‾‾‾‾‾
-          │_____‾‾‾‾‾
-          │
-        0 └──────────────────────────────────────────────────────────
-          0                          10                            20
+      For supervised, Lets say we are asked to predict the height
+        of a ten year old and we are given the following graph.
+
+        height (in)
+            │
+         80 │                                                     x
+            │                                   x   x     x x   x   x
+            │                   x       x   x x   x   x x     x   x   x
+            │             x x x   x   x   x   x
+         40 │       x   x x   x x   x
+            │     x   x   x
+            │       x
+            │
+          0 └──────────────────────────────────────────────────────────
+            0                          10                            20
+                                 age (years)
+
+        An ok way to predict height would be a straight line in the graph.
+        Obviously there is no perfect line but we an ok fit.
+
+        height (in)
+            │
+         80 │                                                     x
+            │                                   x   x     x x  ____/‾‾‾‾
+            │                   x       x   x x   x  ____/‾‾‾‾‾   x   x
+            │             x x x   x   x    ____/‾‾‾‾‾
+         40 │       x   x x   x x____/‾‾‾‾‾
+            │     x   x____/‾‾‾‾‾
+            │____/‾‾‾‾‾
+            │
+          0 └──────────────────────────────────────────────────────────
+            0                          10                            20
                                  age (years)
         
-        An ok way to predict height would be a straight line in the graph.
-        Obviously there is no perfect line but we want the best fitting line.
-        And finding that line requires us to use the given points as guidance.
-        
+         I created the line 
+
           
 Each concept comes with an implementation in c and comes with a Makefile.  
 The visualization is thanks to the great program gnuplot.  
