@@ -46,7 +46,7 @@ This README will serve as the introduction to machine learning and starts below.
                                  age (years)
       
       An ok way to predict height would be a straight line in the graph.
-      Obviously there is no perfect line but we an ok fit.
+      Obviously there is no perfect line but we want an ok fit.
       
         height (in)
             │
