@@ -69,11 +69,12 @@ This README will serve as the introduction to machine learning and starts below.
         4.5               44
         ...               ...
       
-      I will go over what this data means, how we use it, and so on in
+      I will go over what this data means, how we use it, and so on
         further into the repository.
+      Right now I recommend you go onto the supervised learning section.
       
 
-Each concept comes with an implementation in c and comes with a Makefile.  
+Most concepts comes with an implementation in c and comes with a Makefile.  
 The visualization is thanks to the great program gnuplot.  
 
 This repository is a work in progress and may have spelling mistakes (sorry :P)  
