@@ -6,9 +6,10 @@ This README will discuss supervised learning.
       
         Supervised learning and Unsupervised learning
       
-      Right now we will start talking about supervised learning.
-      As the name tells you supervised learning is like there is a teacher
-        who tells the computer as it learns whether it is right or wrong.
+      Right now we will start talking about the former, supervised learning.
+      Its name kind of gives a hint of how it works.
+      In supervised learning you tell the computer what to do from
+        the correct answers.
       As an example lets look at the data from the introduction.
 
                                 height vs. age
@@ -24,9 +25,10 @@ This README will discuss supervised learning.
            │
          0 └──────────────────────────────────────────────────────────
            0                          10                            20
+                                  age (years)
       
-      Let us say we are the computer and we are asked to predict the height
-        of a person just from their age.
+      And now we are supposed to make a line to predict the height of a person
+        from their age.
       Now a good way to do that is put a line through the graph.
       You would probably make your line start from the bottom left and end
         at around the top right.
