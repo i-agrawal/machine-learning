@@ -22,7 +22,8 @@ it is a potentially slow build structure but it is all for the sake of clarity s
 This README will also serve as the introduction to machine learning and starts below.
 
 As with every explanation, I will ask the rhetorical question, "What is machine learning?"  
-I like to think of machine learning as the science of giving a computer experience to learn how to do something.  
+I like to think of machine learning as the science of getting a computer to learn from experience.  
+But more technically it is a field of study about algorithms that learn from data.  
 And for the sake of clarity I will provide an example.  
 
 Lets say we are trying to write a chess bot.  
@@ -71,7 +72,8 @@ I assume that we can agree that more experience leads to a better understanding 
 So let us make our chess bot learn from playing.  
 Let it play game after game after game, gradually changing the way it plays on whether it did well or not last game.  
 Eventually, if we implemented it correctly, the chess bot will begin to get good at chess.  
-Our new chess bot would be based off of machine learning.  
+And tying it all back, our new chess bot would be an example of machine learning.  
 It uses experience (chess games) to learn how to do something (play chess).  
 
-Further on in this repository you will see how to provide experience and the different ways for the machine to learn.  
+Further on in this repository we will go more into depth about how experience can be converted into numerical data and how
+there are different ways for a computer learn from data.
