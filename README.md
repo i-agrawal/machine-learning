@@ -27,12 +27,12 @@ And for the sake of clarity I will provide an example.
 
 Lets say we are trying to write a chess bot.  
 
-![alt text](images/blankboard.png)
+![image not found](images/blankboard.png)
 
 A very common way of implementing a chess bot is to have the bot calculate every possible outcome on the board.  
 For example, in the beginning each player has 20 possible moves.  
 
-![alt text](images/twentyboard.png)
+![image not found](images/twentyboard.png)
 
 If our bot looks 1 move ahead, each player can make 20 possible moves so we have 20 * 20 = 400 possible outcomes.  
 Logically, the best move will have the highest chance of a good outcome so calculating all the outcomes is useful.  
