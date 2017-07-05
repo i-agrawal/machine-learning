@@ -1,81 +1,7 @@
-# Machine Learning
+# About the Repository
 
 This repository aims to implement and explain basic concepts of machine learning.  
 The README.md in each folder will explain how each concept works.  
-This README will serve as the introduction to machine learning and starts below.
-
-      Imagine trying to write a program to play chess.
-      Most chess bots calculate the possible outcomes of each move and choose the move
-        with the best outcomes.
-      But the more moves in the future it calculates, the more outcomes.
-      So just how many outcomes would there be?
-      
-        Moves Ahead          Possible Outcomes        
-        1                    400
-        2                    72,084
-        3                    9+ million
-        4                    288+ billion
-        ...                  ...
-        40                   More electrons than in the universe
-      
-      At around 4 moves it basically becomes too much for the computer to handle.
-      That is why most chess programs that use this method usually look 3 moves ahead.
-      But we dont want such a complicated approach.
-      Humans dont calculate every possible move yet some can play better than a bot.
-      So if we want a chess program that plays like a human we should look at
-        how a human learns to play chess.
-      
-        Lets say we have some guy who wants to learn to play chess.
-        Rather than going overboard and looking up a lot of strategy,
-          he jumps right in and plays a game.
-        He is not very experienced so he loses.
-        But he jumps back in and plays another game.
-        After playing a lot of games he gets better and better.
-      
-      That sounds like a pretty normal way of how a lot of people learn chess.
-      It also sounds like a pretty normal way that people learn anything.
-      And that is the process we use to get computers to learn.
-      Machine learning is all about giving the computer experience and using
-        that experience we have it learn.
-
-      The way we give computers experience is in the form of data.
-      Lets look at a new example, of height vs. age and we have the
-        following data.
-      
-                                height vs. age
-        height (in)
-            │
-         80 │                                                     x
-            │                                   x   x     x x   x   x
-            │                   x       x   x x   x   x x     x   x   x
-            │                 x   x   x   x   x
-         40 │         x x x   x x   x
-            │     x       x
-            │       x
-            │
-          0 └──────────────────────────────────────────────────────────
-            0                          10                            20
-                                   age (years)
-      
-      If you were to format this data it would look something like this.
-      
-        Age (years)       Height (in)
-        2                 31
-        2.5               29
-        3                 40
-        3.5               43
-        4                 43
-        4.5               39
-        4.5               44
-        ...               ...
-      
-      I will go over what this data means, how we use it, and so on
-        further into the repository.
-      Right now I recommend you head on over to the supervised learning section.
-      
-
-# About the Repository
-
 Most concepts comes with an implementation in c and comes with a Makefile.  
 The visualization is thanks to the great program gnuplot.  
 
@@ -87,4 +13,66 @@ Also know that nothing here is as highly optimized as the hard working people
 Also since we use gnuplot you must be careful and follow their Copywrite when using and
 especially if modifying this repository.
 
-In order to keep an easy to read structure, the build process currently features recursive make calls. If you have ever read Peter Miller's ![paper](http://aegis.sourceforge.net/auug97.pdf) it is a potentially slow build structure but it is all for the sake of clarity so please forgive me.
+In order to keep an easy to read structure, the build process currently features 
+recursive make calls. If you have ever read Peter Miller's ![paper](http://aegis.sourceforge.net/auug97.pdf)
+it is a potentially slow build structure but it is all for the sake of clarity so please forgive me.
+
+# Machine Learning
+
+This README will also serve as the introduction to machine learning and starts below.
+
+As with every explanation, I will ask the rhetorical question, "What is machine learning?"  
+I like to think of machine learning as the science of giving a computer experience to learn how to do something.  
+And for the sake of clarity I will provide an example.  
+
+Lets say we are trying to write a chess bot.  
+
+![alt text](images/blankboard.png)
+
+A very common way of implementing a chess bot is to have the bot calculate every possible outcome on the board.  
+For example, in the beginning each player has 20 possible moves.  
+
+![alt text](images/twentyboard.png)
+
+If our bot looks 1 move ahead, each player can make 20 possible moves so we have 20 * 20 = 400 possible outcomes.  
+Logically, the best move will have the highest chance of a good outcome so calculating all the outcomes is useful.  
+But if we only look 1 move ahead it will hard to determine if the an outcome is good.  
+And it makes sense because one move into a chess game usually does not determine the winner.
+That is why most chess bots look more than 1 move ahead.  
+The problem is that the more moves ahead you look, the more outcomes there are to calculate.  
+
+| Moves |  Outcomes  |
+|:-----:|:----------:|
+|   1   |     400    |
+|   2   |   72,084   |
+|   3   | 9+ Million |
+|   4   |288+ Billion|
+|  ...  |     ...    |
+|   40  |More electrons than in the universe|
+
+I think after 4 moves, most computers would start lagging and overheating.  
+So the explicit approach to a chess bot would probably look ~3 moves ahead and choose the best move.  
+
+So faced with a robot that calculates 9 million positions and 3 moves ahead, we humans have begun to lose to chess bots.  
+But the greatest human players can still put up a fight.  
+Grandmasters are human and can only look at a very small fraction of the outcomes a computer can.  
+Yet they can compete with a bot calculating 9 million positions and 3 moves ahead.  
+That is because when humans look at the chess board, they only consider 2-3 out of these 20 moves.  
+Let us look at how humans narrow it down to 2-3 moves.  
+
+Imagine we play our first chess game ever, only knowing the basics.  
+We dont know what move to choose in the beginning, so we look at a few of our options and choose one with very little thinking.  
+Eventually we repeat the process every turn and lose.  
+Then we decide to try again hoping to win.  
+And after losing multiple times we begin to get better and better.  
+We begin to see what moves are reasonable and what moves are not.  
+The accumulated experience lets us get better and better.  
+
+I assume that we can agree that more experience leads to a better understanding of the game.  
+So let us make our chess bot learn from playing.  
+Let it play game after game after game, gradually changing the way it plays on whether it did well or not last game.  
+Eventually, if we implemented it correctly, the chess bot will begin to get good at chess.  
+Our new chess bot would be based off of machine learning.  
+It uses experience (chess games) to learn how to do something (play chess).  
+
+Further on in this repository you will see how to provide experience and the different ways for the machine to learn.  
