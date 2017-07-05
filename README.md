@@ -36,8 +36,7 @@ For example, in the beginning each player has 20 possible moves.
 
 If our bot looks 1 move ahead, each player can make 20 possible moves so we have 20 * 20 = 400 possible outcomes.  
 Logically, the best move will have the highest chance of a good outcome so calculating all the outcomes is useful.  
-But if we only look 1 move ahead it will hard to determine if the an outcome is good.  
-And it makes sense because one move into a chess game usually does not determine the winner.
+But looking only 1 move ahead will not be as good as looking 2 or 3 moves ahead.  
 That is why most chess bots look more than 1 move ahead.  
 The problem is that the more moves ahead you look, the more outcomes there are to calculate.  
 
