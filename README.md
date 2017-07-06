@@ -63,8 +63,7 @@ Like these are the most likely first moves on the white side.
 
 ![image not found](images/fmoveboard.png)
 
-The real mystery is how people narrow down their choices.  
-Well the best answer is that it comes from a learning process.
+The real mystery is how people narrow down their choices and the best answer is that they developed it from all the games they have played.
 
 Imagine we play our first chess game ever, only knowing the basics.  
 We dont know what move to choose in the beginning, so we choose one with very little thinking.  
