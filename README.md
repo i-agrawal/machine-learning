@@ -75,8 +75,8 @@ We begin to see what moves are reasonable and what moves are not.
 And more accumulated experience makes us better and better.  
 
 I assume that we can agree that more experience leads to getting better at anything.  
-And rather than our bot calculating 9 million things every turn, this is a lot more human-like.  
 We should let our chess bot play game after game after game, gradually changing the way it plays on whether it did well or not last game.  
+And rather than our bot calculating 9 million things every turn, this is a lot more human-like.  
 Eventually, if we implemented it correctly, the chess bot will begin to get better at chess.  
 And tying it all back, our new chess bot would be an example of machine learning.  
 It is not explicitly told how to choose what move, rather it uses the games it played to get better game judgement.
