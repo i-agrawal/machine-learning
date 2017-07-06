@@ -53,7 +53,7 @@ The problem is that the more moves ahead you look, the more outcomes there are t
 I think after 4 moves, most computers would start lagging and overheating.  
 So the explicit approach to a chess bot would probably look ~3 moves ahead and choose the best move.  
 
-So faced with a robot that calculates 9 million positions and 3 moves ahead, we humans have begun to lose to chess bots.  
+Now faced with robots that calculate 9 million positions and 3 moves ahead, humans have begun to lose. 
 But the greatest human players can still put up a fight.  
 Grandmasters are human and can only look at a very small fraction of the outcomes a computer can.  
 Yet they can compete with a bot calculating 9 million positions and 3 moves ahead.  
