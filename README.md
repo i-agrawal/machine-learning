@@ -57,7 +57,7 @@ Chess players are now faced with robots that calculate 9 million positions and 3
 But the greatest human players, grandmasters, still put up a fight.  
 It was until recently that chess bots managed to even take a game from a grandmaster.  
 And that is suprising considering grandmasters are only human and can only look at a very small fraction of the outcomes a computer can.  
-Grandmasters can compete with robots due to how they make descisions.  
+The reason grandmasters can compete with robots is due to how gms make descisions.  
 They only consider 3-4 moves every turn rather than looking at every move.  
 Like these are the most likely first moves on the white side.  
 
