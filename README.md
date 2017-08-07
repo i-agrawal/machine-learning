@@ -14,7 +14,7 @@ Machine learning is a type of artifical intelligence that allows
 
 For example, let us say we are trying to detect if there is an orange
   in a given picture.  
-![image not found](./images/orange.jpg)
+![image not found](./images/orange.jpg =100x100)
 We could have our computer look for orange circles in the picture and
   that would be explicitly programming the computer to detect oranges.  
 The machine learning way would be to get a bunch of pictures of oranges
