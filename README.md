@@ -1,7 +1,7 @@
 # About the Repository
 
 This repository is current a work in progress and aims to implement and explain
-  concepts of machine learning with examples and implementations.
+  concepts of machine learning with examples and implementations.  
 The visualization is thanks to the great program gnuplot which you can install
   using your system's package manager like homebrew on Mac, apt on Debian, yum
   on Redhat, Chocolatey on windows, etc.
