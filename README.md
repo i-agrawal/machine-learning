@@ -29,7 +29,7 @@ The machine learning approach is a bit simplified but it is what
 Now different parts of the example should be explained.  
 
 The bunch of pictures of oranges and non-oranges is called data
-  and it is used to train the computer.
+  and it is used to train the computer.  
 Perhaps one of the most important parts of machine learning, the
   data determines what the computer learns.  
 For example, if we switched from pictures of orange and non-oranges
